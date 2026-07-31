@@ -5,6 +5,7 @@
   // (i was going to do something more simple but i went very far :sob:)
 
   // at least i don't need to worry about a database...
+  // TODO: I should convert the images to WEBP so the page handles the images in a optimized way but tbh i am tired rn
 
   // mid loop: seeks to duration, loops a 10s window
   document.querySelectorAll('video[data-midloop]').forEach(function (v) {
@@ -531,7 +532,7 @@
     nextBtn.className = 'card-nav-btn card-nav-next';
     nextBtn.innerHTML = '&#8594;'; 
     nextBtn.setAttribute('aria-label', 'Next');
-    
+
     nextBtn.addEventListener('click', function (e) { 
       e.stopPropagation(); 
       goTo(idx + 1); 
