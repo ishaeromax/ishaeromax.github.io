@@ -1,4 +1,10 @@
-(function () {
+(function () { 
+  // Yeah i really don't like this code knowing it was done in a rush 
+  // and usually putting a lot of stuff in 1 lines then organize again and 
+  // blah blah balh blah blahhhhhhhhh
+  // (i was going to do something more simple but i went very far :sob:)
+
+  // at least i don't need to worry about a database...
 
   // mid loop: seeks to duration, loops a 10s window
   document.querySelectorAll('video[data-midloop]').forEach(function (v) {
@@ -31,10 +37,9 @@
     
     setInterval(function () {
       iframe.src = '';
-      
-      setTimeout(function () { 
-        iframe.src = src; 
-      }, 80);
+
+      // I really don't like to put stuff in 1 like this one but IT GIVES ME A DAMN TICK TO SEE IT IN 3 LINES
+      setTimeout(function () { iframe.src = src; }, 80);
     }, 10000);
   });
 
@@ -97,7 +102,8 @@
     
     if (item.type === 'video') {
       var v = document.createElement('video');
-      v.src = item.src; v.controls = true; v.preload = 'auto';
+      v.src = item.src; v.controls = true; 
+      v.preload = 'auto';
       
       v.setAttribute('playsinline', '');
       v.addEventListener('loadedmetadata', function () { 
@@ -106,6 +112,7 @@
       
       return v;
     }
+
     if (item.type === 'youtube') {
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + item.id + '?rel=0&modestbranding=1' + (item.start ? '&start=' + item.start : '');
@@ -113,6 +120,7 @@
       
       return f;
     }
+
     var ph = document.createElement('div');
     ph.className = 'media-ph'; ph.setAttribute('aria-hidden', 'true');
     ph.innerHTML = '<div class="media-ph-ring">&#9654;</div><span>no media</span>';
@@ -150,16 +158,19 @@
     var rawLinks = [];
     try { 
       rawLinks = JSON.parse(card.dataset.modalLinks || '[]'); 
-    } catch (e) {}
+    } 
+    catch (e) {}
     
     rawLinks.forEach(function (l) {
       if (!l.url || l.url.indexOf('PENDING') !== -1) 
         return;
       
       var a = document.createElement('a');
-      a.className = 'modal-link'; a.href = l.url;
+      a.className = 'modal-link'; 
+      a.href = l.url;
       
-      a.target = '_blank'; a.rel = 'noopener noreferrer';
+      a.target = '_blank'; 
+      a.rel = 'noopener noreferrer';
       a.textContent = l.label; linksEl.appendChild(a);
     });
 
@@ -178,17 +189,20 @@
           title:'Video', 
           start:ytstart 
         });
-    } else if (cv) {
+    } 
+    else if (cv) {
       mediaItems.push({ 
         type:'video', 
         src:cv.getAttribute('src') 
       });
-    } else if (ci) {
+    } 
+    else if (ci) {
       mediaItems.push({ 
         type:'image', src:ci.getAttribute('src'), 
         alt:ci.alt 
       });
-    } else {
+    } 
+    else {
       mediaItems.push({ type:'placeholder' });
     }
     
@@ -215,6 +229,7 @@
       mediaItems.forEach(function (_, i) {
         var d = document.createElement('span');
         d.className = 'gal-dot' + (i === 0 ? ' active' : '');
+
         d.addEventListener('click', function () { 
           showMedia(i); 
         });
@@ -238,6 +253,7 @@
           var tImg = document.createElement('img'); 
           tImg.src = item.src; 
           tImg.alt = ''; 
+          
           thumb.appendChild(tImg);
         } 
         else if (item.type === 'video') {
@@ -268,7 +284,8 @@
       st.className = 'modal-thumb active';
       
       var stv = document.createElement('video');
-      stv.src = mediaItems[0].src; stv.preload = 'metadata'; stv.muted = true;
+      stv.src = mediaItems[0].src; stv.preload = 'metadata'; 
+      stv.muted = true;
       stv.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
       
       stv.addEventListener('loadedmetadata', function () { 
@@ -371,7 +388,10 @@
       smb.style.marginTop = '0';
       smb.textContent = 'See More';
       
-      smb.addEventListener('click', function (e) { e.stopPropagation(); openModal(card); });
+      smb.addEventListener('click', function (e) { 
+        e.stopPropagation(); 
+        openModal(card); 
+      });
       btnRow.appendChild(smb);
 
       if (card.dataset.sourceUrl) {
@@ -383,7 +403,10 @@
         src.target = '_blank';
         src.rel = 'noopener noreferrer';
         
-        src.addEventListener('click', function (e) { e.stopPropagation(); });
+        src.addEventListener('click', function (e) { 
+          e.stopPropagation(); 
+        });
+
         btnRow.appendChild(src);
       }
 
@@ -411,7 +434,8 @@
         el = document.createElement('video');
         el.src = slide.src; el.muted = true; el.loop = true;
         
-        el.setAttribute('playsinline', ''); el.setAttribute('preload', 'auto');
+        el.setAttribute('playsinline', ''); 
+        el.setAttribute('preload', 'auto');
         el.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;';
         
         if (slide.midloop) {
@@ -423,23 +447,28 @@
           });
           
           el.addEventListener('timeupdate', function () {
-            if (el._le !== undefined && el.currentTime >= el._le) el.currentTime = el._ls;
+            if (el._le !== undefined && el.currentTime >= el._le)
+              el.currentTime = el._ls;
           });
-        } else {
+        } 
+        else {
           el.addEventListener('loadedmetadata', function () { 
             el.currentTime = 0.1; el.play().catch(function () {}); });
         }
-      } else if (slide.type === 'image') {
+      } 
+      else if (slide.type === 'image') {
         el = document.createElement('img');
         el.src = slide.src; el.alt = slide.alt || '';
         
         el.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;';
-      } else if (slide.type === 'youtube') {
+      } 
+      else if (slide.type === 'youtube') {
         el = document.createElement('img');
         el.src = 'https://img.youtube.com/vi/' + slide.id + '/hqdefault.jpg'; el.alt = '';
         
         el.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;';
-      } else {
+      } 
+      else {
         el = document.createElement('div');
         el.style.cssText = 'position:absolute;inset:0;background:var(--bg2);';
       }
@@ -490,13 +519,23 @@
 
     var prevBtn = document.createElement('button');
     prevBtn.className = 'card-nav-btn card-nav-prev';
-    prevBtn.innerHTML = '&#8592;'; prevBtn.setAttribute('aria-label', 'Previous');
-    prevBtn.addEventListener('click', function (e) { e.stopPropagation(); goTo(idx - 1); });
+    prevBtn.innerHTML = '&#8592;'; 
+    prevBtn.setAttribute('aria-label', 'Previous');
+
+    prevBtn.addEventListener('click', function (e) { 
+      e.stopPropagation(); 
+      goTo(idx - 1); 
+    });
 
     var nextBtn = document.createElement('button');
     nextBtn.className = 'card-nav-btn card-nav-next';
-    nextBtn.innerHTML = '&#8594;'; nextBtn.setAttribute('aria-label', 'Next');
-    nextBtn.addEventListener('click', function (e) { e.stopPropagation(); goTo(idx + 1); });
+    nextBtn.innerHTML = '&#8594;'; 
+    nextBtn.setAttribute('aria-label', 'Next');
+    
+    nextBtn.addEventListener('click', function (e) { 
+      e.stopPropagation(); 
+      goTo(idx + 1); 
+    });
 
     var dotsWrap = document.createElement('div');
     dotsWrap.className = 'card-dots';
