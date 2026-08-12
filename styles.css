@@ -223,6 +223,10 @@ nav {
   white-space: nowrap;
 }
 
+.prof-warning {
+  color: var(--js);
+}
+
 .c-gds  { color: var(--gds);  }
 .c-haxe { color: var(--haxe); }
 .c-cpp  { color: var(--cpp);  }
