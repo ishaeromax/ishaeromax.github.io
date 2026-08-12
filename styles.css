@@ -180,11 +180,11 @@ nav {
   flex-shrink: 0;
 }
 
-.prof-bars {
-  display: flex;
-  flex-direction: column;
-  gap: .55rem;
-  max-width: 420px;
+.prof-row {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .75rem;
 }
 
 .prof-row {
@@ -220,6 +220,7 @@ nav {
   font-size: .68rem;
   color: var(--text2);
   text-align: right;
+  white-space: nowrap;
 }
 
 .c-gds  { color: var(--gds);  }
