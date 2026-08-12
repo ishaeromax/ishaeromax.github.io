@@ -180,16 +180,16 @@ nav {
   flex-shrink: 0;
 }
 
-.prof-row {
-  display: grid;
-  grid-template-columns: 90px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: .75rem;
+.prof-bars {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  max-width: 420px;
 }
 
 .prof-row {
   display: grid;
-  grid-template-columns: 90px 1fr 36px;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
   align-items: center;
   gap: .75rem;
 }
