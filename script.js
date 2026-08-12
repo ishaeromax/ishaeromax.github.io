@@ -39,8 +39,10 @@
     setInterval(function () {
       iframe.src = '';
 
-      // I really don't like to put stuff in 1 like this one but IT GIVES ME A DAMN TICK TO SEE IT IN 3 LINES
-      setTimeout(function () { iframe.src = src; }, 80);
+      // Changed this to make it more readable for anybody that wants to see this
+      setTimeout(function () { 
+        iframe.src = src; 
+      }, 80);
     }, 10000);
   });
 

@@ -40,6 +40,7 @@
 
     <span class="cluster-label">proficiency</span>
 
+    <!-- Idk how i forgot to update the width bro -->
     <div class="prof-bars" aria-label="Language proficiency">
       <div class="prof-row">
         <span class="prof-name c-gds">GDScript</span>
@@ -61,19 +62,19 @@
 
       <div class="prof-row">
         <span class="prof-name c-cpp">C++</span>
-        <div class="prof-track"><div class="prof-fill" style="width:37%;background:var(--cpp)"></div></div>
-        <span class="prof-pct">32%</span>
+        <div class="prof-track"><div class="prof-fill" style="width:32%;background:var(--cpp)"></div></div>
+        <span class="prof-pct">32%<span class="prof-warning">(Not very experienced)</span></span>
       </div>
 
       <div class="prof-row">
         <span class="prof-name c-py">Python</span>
         <div class="prof-track"><div class="prof-fill" style="width:45%;background:var(--py)"></div></div>
-        <span class="prof-pct">45%</span>
+        <span class="prof-pct">45%<span class="prof-warning">(Not very experienced)</span></span>
       </div>
 
       <div class="prof-row">
         <span class="prof-name c-lua">Luau</span>
-        <div class="prof-track"><div class="prof-fill" style="width:23%;background:var(--lua)"></div></div>
+        <div class="prof-track"><div class="prof-fill" style="width:13%;background:var(--lua)"></div></div>
         <span class="prof-pct">13% <span class="prof-warning">(Have not used it in a while)</span></span>
       </div>
 
@@ -85,26 +86,26 @@
 
       <div class="prof-row">
         <span class="prof-name c-gml">GML</span>
-        <div class="prof-track"><div class="prof-fill" style="width:55%;background:var(--gml)"></div></div>
+        <div class="prof-track"><div class="prof-fill" style="width:51%;background:var(--gml)"></div></div>
         <span class="prof-pct">51%</span>
       </div>
 
       <div class="prof-row">
         <span class="prof-name c-html">HTML</span>
         <div class="prof-track"><div class="prof-fill" style="width:35%;background:var(--html)"></div></div>
-        <span class="prof-pct">35%</span>
+        <span class="prof-pct">35%<span class="prof-warning">(Not very experienced)</span></span>
       </div>
 
       <div class="prof-row">
         <span class="prof-name c-css">CSS</span>
         <div class="prof-track"><div class="prof-fill" style="width:31%;background:var(--css)"></div></div>
-        <span class="prof-pct">31%</span>
+        <span class="prof-pct">31%<span class="prof-warning">(Not very experienced)</span></span>
       </div>
 
       <div class="prof-row">
         <span class="prof-name c-js">JavaScript</span>
         <div class="prof-track"><div class="prof-fill" style="width:27%;background:var(--js)"></div></div>
-        <span class="prof-pct">27%</span>
+        <span class="prof-pct">27%<span class="prof-warning">(Not very experienced)</span></span>
       </div>
     </div>
   </div>
@@ -175,6 +176,29 @@
     </div>
 
     <div class="projects-grid" id="projectsGrid">
+
+      <!-- new one, i am not changing the numbers bro i am too lazy -->
+      <article
+        class="pcard"
+        data-langs="gml"
+        data-modal-desc='This is a recent project i have "finished" but still being updated, its a mod about antonblast where i implement archipelago with his own client in the archipelago launcher so you can play with friends in a randomized game online.'
+        data-modal-media='[{"type":"image","src":"media/ap-antonblast/antonblast-ap-client.png","alt":"Archipelago client"}]'
+        data-modal-links='[]'>
+        <div class="pcard-media">
+          <video
+            src="media/ap-antonblast/antonblast-ap-gameplay.mp4"
+            autoplay muted loop playsinline preload="auto" data-midloop>
+          </video>
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Antonblast Archipelago</h3>
+          <p class="pcard-desc">This is a recent project i have "finished" but still being updated, its a mod about antonblast where i implement archipelago with his own client in the archipelago launcher so you can play with friends in a randomized game online.</p>
+          <div class="pcard-footer">
+            <span class="ctag c-gml">GML</span>
+            <span class="ctag-neutral">Mod</span>
+          </div>
+        </div>
+      </article>
 
       <!-- 1 -->
       <article

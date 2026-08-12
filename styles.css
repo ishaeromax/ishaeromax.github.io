@@ -189,7 +189,7 @@ nav {
 
 .prof-row {
   display: grid;
-  grid-template-columns: 90px minmax(0, 1fr) auto;
+  grid-template-columns: 90px 1fr 36px;
   align-items: center;
   gap: .75rem;
 }
@@ -221,10 +221,18 @@ nav {
   color: var(--text2);
   text-align: right;
   white-space: nowrap;
+  position: relative;
 }
 
 .prof-warning {
+  position: absolute;
+  left: calc(100% + .5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: .6rem;
   color: var(--js);
+  opacity: .7;
+  white-space: nowrap;
 }
 
 .c-gds  { color: var(--gds);  }
